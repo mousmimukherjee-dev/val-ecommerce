@@ -1,0 +1,103 @@
+
+import { ProductProps } from "@/types/types";
+
+
+export const productsData: ProductProps[] = [
+  {
+    id: 1,
+    name: "Oversized Linen Shirt",
+    price: 58,
+    category: "Women",
+    image: "/images/linen-shirt.jpg",
+    description: "A relaxed linen shirt with a lightweight, effortless feel.",
+  },
+  {
+    id: 2,
+    name: "Silk Slip Dress",
+    price: 148,
+    category: "Women",
+    image: "/images/silk-slip-dress.jpg",
+    description: "A fluid silk dress with an elegant and minimal silhouette.",
+  },
+  {
+    id: 3,
+    name: "Wide-Leg Trousers",
+    price: 85,
+    category: "Women",
+    image: "/images/wide-leg-trousers.jpg",
+    description: "Relaxed wide-leg trousers with a clean, timeless fit.",
+  },
+  {
+    id: 4,
+    name: "Trench Coat",
+    price: 85,
+    category: "Men",
+    image: "/images/trench-coat.jpg",
+    description: "A classic trench coat with a refined, versatile design.",
+  },
+  {
+    id: 5,
+    name: "Tapered Trousers",
+    price: 110,
+    category: "Men",
+    image: "/images/tapered-trousers.jpg",
+    description: "Modern tapered trousers designed for a clean, tailored look.",
+  },
+  {
+    id: 6,
+    name: "Canvas Utility Jacket",
+    price: 135,
+    category: "Men",
+    image: "/images/canvas-utility-jacket.jpg",
+    description: "A durable canvas jacket with a practical utility-inspired style.",
+  },
+  {
+    id: 7,
+    name: "Striped Cotton Tee",
+    price: 22,
+    category: "Kids",
+    image: "/images/striped-cotton-tee.jpg",
+    description: "A soft cotton tee with classic stripes for everyday comfort.",
+  },
+  {
+    id: 8,
+    name: "Dungarees",
+    price: 38,
+    category: "Kids",
+    image: "/images/dungarees.jpg",
+    description: "Comfortable everyday dungarees made for easy movement and play.",
+  },
+  {
+    id: 9,
+    name: "Linen Duvet Cover",
+    price: 120,
+    category: "Home",
+    image: "/images/linen-duvet-cover.jpg",
+    description: "A breathable linen duvet cover with a relaxed natural texture.",
+  },
+  {
+    id: 10,
+    name: "Ceramic Mug Set",
+    price: 45,
+    category: "Home",
+    image: "/images/ceramic-mug-set.jpg",
+    description: "A minimalist ceramic mug set made for everyday use.",
+  },
+  {
+    id: 11,
+    name: "Rosehip Face Oil",
+    price: 34,
+    category: "Beauty",
+    image: "/images/rosehip-face-oil.jpg",
+    description: "A lightweight face oil with a nourishing, silky finish.",
+  },
+  {
+    id: 12,
+    name: "Hydrating Body Cream",
+    price: 28,
+    category: "Beauty",
+    image: "/images/hydrating-body-cream.jpg",
+    description: "A rich body cream that leaves skin feeling soft and hydrated.",
+  },
+]
+
