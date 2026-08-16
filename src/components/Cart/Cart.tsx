@@ -28,15 +28,15 @@ const Cart = () => {
 
       {cart.length === 0 && (
         <>
-          <div className="flex flex-col justify-center items-center mt-20">
-            <h3>YOUR BASKET IS EMPTY</h3>
+          <div data-testid="empty-cart" className="flex flex-col justify-center items-center mt-20">
+            <h3 >YOUR BASKET IS EMPTY</h3>
             <p>The items you add will be shown here</p>
           </div>
         </>
       )}
 
       {cart.length > 0 && (
-  <div className="flex justify-evenly items-center px-6 ">
+  <div data-testid="product-cart" className="flex justify-evenly items-center px-6 ">
     <div className="flex flex-col gap-10">
       {cart.map((item) => (
         <div

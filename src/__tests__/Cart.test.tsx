@@ -43,4 +43,53 @@ describe("should render cart", () => {
 
     expect(productQuantity).toHaveTextContent("1");
   });
+
+  test("Removing a product decreases its quantity, and removes it entirely once quantity reaches zero, with the order summary updating accordingly and appear text YOUR BASKET IS EMPTY", () => {
+    render(
+      <CartContextProvider>
+        <Cart />
+        <Nav />
+        <ProductsPage />
+      </CartContextProvider>,
+    );
+
+    const addButton = screen.getAllByRole("button", { name: /Add to Bag/i })[0];
+    fireEvent.click(addButton);
+    fireEvent.click(addButton);
+
+    const productQuantity = screen.getByTestId("product-quantity");
+    expect(productQuantity).toHaveTextContent("2");
+
+    const button = screen.getAllByRole("button", { name: /Remove/i })[0];
+
+    fireEvent.click(button);
+    fireEvent.click(button);
+
+    expect(screen.queryAllByTestId("product-cart")[0]).not.toBeInTheDocument;
+  });
+
+  test("Removing a product decreases its quantity, and removes it entirely once quantity reaches zero, with the order summary updating accordingly and appear text YOUR BASKET IS EMPTY", () => {
+    render(
+      <CartContextProvider>
+        <Cart />
+        <Nav />
+        <ProductsPage />
+      </CartContextProvider>,
+    );
+
+    const addButton = screen.getAllByRole("button", { name: /Add to Bag/i })[0];
+    fireEvent.click(addButton);
+    fireEvent.click(addButton);
+
+    const productQuantity = screen.getByTestId("product-quantity");
+    expect(productQuantity).toHaveTextContent("2");
+
+    const button = screen.getAllByRole("button", { name: /Remove/i })[0];
+
+    fireEvent.click(button);
+    fireEvent.click(button);
+
+    expect(screen.queryAllByTestId("product-cart")[0]).not.toBeInTheDocument;
+    expect(screen.getByTestId("empty-cart")).toBeInTheDocument();
+  });
 });
