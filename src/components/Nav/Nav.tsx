@@ -8,10 +8,15 @@ const Nav = () => {
 
   const pathname = usePathname();
 
-  const[activeCategory , setActiveCategory] = useState("All")
+  const[activeCategory , setActiveCategory] = useState("")
 
   if (pathname === "/cartpage") {
     return null;
+  }
+
+  if(pathname === "/"){
+
+    return null
   }
 
   const handelActiveCategory =(category : string)=>{
