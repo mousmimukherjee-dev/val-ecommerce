@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header/Header";
 import Nav from "@/components/Nav/Nav";
 import CartContextProvider from "@/context/CartContextProvider";
+import { UserContextProvider } from "@/context/UserContextProvider";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -30,11 +31,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${barlow.variable} ${bodoni.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#ffffff]">
+        <UserContextProvider>
         <CartContextProvider>
           <Header />
           <Nav />
           {children}
         </CartContextProvider>
+        </UserContextProvider>
       </body>
     </html>
   );

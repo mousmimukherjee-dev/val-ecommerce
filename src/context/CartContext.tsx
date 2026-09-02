@@ -19,7 +19,7 @@ export const useCart=()=>{
     throw new Error("Product not added")
    
   }
-  return context
+  return context;
 
 }
 

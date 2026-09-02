@@ -19,7 +19,7 @@ const HomePage = () => {
         </p>
         <div className="flex gap-3">
           <Link href="/products" className="border border-black text-black text-sm py-3 px-5 hover:bg-black hover:text-white">SHOP NOW</Link>
-          <Link href="/signin" className="border border-black text-black text-sm py-3 px-7.5 hover:bg-black hover:text-white">SIGN IN</Link>
+          <Link href="/signin" className="border border-black text-black text-sm py-3 px-7.5 hover:bg-black hover:text-white">SIGN OUT</Link>
         </div>
       </div>
     </main>

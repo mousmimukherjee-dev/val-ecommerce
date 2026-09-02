@@ -19,6 +19,12 @@ const Nav = () => {
     return null
   }
 
+
+  if(pathname === "/signin"){
+
+    return null
+  }
+
   const handelActiveCategory =(category : string)=>{
 
     setActiveCategory(category)

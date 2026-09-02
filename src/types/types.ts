@@ -10,3 +10,6 @@ export interface ProductProps {
 export interface CartItemsProps extends ProductProps {
   quantity: number;
 }
+
+
+
