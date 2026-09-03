@@ -6,8 +6,8 @@ export interface UserProps {
 }
 
 export interface UserContextProps {
-  user: UserProps[];
-  setUser: Dispatch<SetStateAction<UserProps[]>>;
+  user: UserProps | null;
+  setUser: Dispatch<SetStateAction<UserProps | null>>;
 }
 
 export const UserContext = createContext<UserContextProps | null>(null);

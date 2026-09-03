@@ -5,6 +5,7 @@ import { Header } from "@/components/Header/Header";
 import Nav from "@/components/Nav/Nav";
 import CartContextProvider from "@/context/CartContextProvider";
 import { UserContextProvider } from "@/context/UserContextProvider";
+import { ApiCallContextProvider } from "@/context/ApiCallContextProvider";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -32,11 +33,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-[#ffffff]">
         <UserContextProvider>
-        <CartContextProvider>
-          <Header />
-          <Nav />
-          {children}
-        </CartContextProvider>
+          <ApiCallContextProvider>
+            <CartContextProvider>
+              <Header />
+              <Nav />
+              {children}
+            </CartContextProvider>
+          </ApiCallContextProvider>
         </UserContextProvider>
       </body>
     </html>

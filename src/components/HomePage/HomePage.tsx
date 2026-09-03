@@ -1,10 +1,13 @@
 "use client"
 import ProductsPage from "@/components/ProducstPage/ProductsPage";
+import { useUser } from "@/context/UserContext";
 import Image from "next/image";
 import Link from "next/link"
 
 
 const HomePage = () => {
+
+   const { user , setUser} = useUser();
   return (
     <main className="grid grid-cols-2 gap-4">
       <div className="w-full h-screen relative">
@@ -19,7 +22,16 @@ const HomePage = () => {
         </p>
         <div className="flex gap-3">
           <Link href="/products" className="border border-black text-black text-sm py-3 px-5 hover:bg-black hover:text-white">SHOP NOW</Link>
-          <Link href="/signin" className="border border-black text-black text-sm py-3 px-7.5 hover:bg-black hover:text-white">SIGN OUT</Link>
+
+         
+          <Link href={user ? "#" : "/signin"} className="border border-black text-black text-sm py-3 px-7.5 hover:bg-black hover:text-white" onClick={e => {
+
+            
+            if(user){
+              e.preventDefault()
+              setUser(null)
+            }
+          }}>{user ? "SIGN OUT" : "SIGN IN"}</Link>
         </div>
       </div>
     </main>

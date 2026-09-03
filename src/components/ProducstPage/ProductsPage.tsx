@@ -5,9 +5,15 @@ import Image from "next/image";
 
 import { CartItemsProps, ProductProps } from "@/types/types";
 import { useCart } from "@/context/CartContext";
+import { useEffect, useState } from "react";
+import { useUser } from "@/context/UserContext";
+import { ApiCallContextProvider } from "@/context/ApiCallContextProvider";
+import { useApiCall } from "@/context/ApiCallContext";
 
 const ProductsPage = () => {
+  
   const { setCart } = useCart();
+  const { products } = useApiCall()
 
   const addToCart = (
     e: React.MouseEvent<HTMLButtonElement>,
@@ -29,9 +35,12 @@ const ProductsPage = () => {
       return [...prev, { ...product, quantity: 1 }];
     });
   };
+
+  
+
   return (
     <div className="grid grid-cols-4 gap-8 py-5 max-w-7xl mx-auto h-110 font-body">
-      {productsData.map((item) => {
+      {products.map((item) => {
         const href =
           item.category === "All"
             ? "/products"
@@ -39,14 +48,16 @@ const ProductsPage = () => {
         return (
           <Link href={href} key={item.id} className="group">
             <div className="relative flex justify-center items-center overflow-hidden">
-              <Image
-                src={item.image}
-                alt="product-img"
-                width={80}
-                height={80}
-                loading="eager"
-                className="w-82.5 h-110 object-cover group-hover:scale-[1.03]"
-              />
+         
+              <div className="relative w-82.5 h-110 overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-contain group-hover:scale-[1.03]"
+                />
+              </div>
               <button
                 className="w-fit z-50 cursor-pointer px-19 py-2  absolute bottom-4 text-center mx-auto bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-75"
                 onClick={(e) => addToCart(e, item)}
@@ -58,7 +69,7 @@ const ProductsPage = () => {
               {item.name}
             </p>{" "}
             <p data-testid="product-price" className="text-gray-dark">
-              {item.price}{" "}SEK
+              {item.price} SEK
             </p>
           </Link>
         );

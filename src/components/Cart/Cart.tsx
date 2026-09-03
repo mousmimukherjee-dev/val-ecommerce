@@ -4,6 +4,7 @@ import { useCart } from "@/context/CartContext";
 import { CartItemsProps, ProductProps } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const Cart = () => {
   const { cart, setCart } = useCart();
@@ -17,10 +18,25 @@ const Cart = () => {
 
   const totalAmount = subTotal - afterDiscount
 
+  useEffect(() => {
+  const stored = localStorage.getItem("cartItems");
+
+  if (stored) {
+    const cartItems: CartItemsProps[] = JSON.parse(stored);
+    if (cartItems.length > 0) {
+      setCart(cartItems);
+    }
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+}, [cart]);
+
   return (
     <>
       <div className="grid font-body grid-cols-3 items-center text-gray-dark p-6 max-w-6xl">
-        <Link href="/">Continue Shopping</Link>
+        <Link href="/products">Continue Shopping</Link>
         <h1 className="text-center">
           Shopping Bag {""} {cart.length}
         </h1>

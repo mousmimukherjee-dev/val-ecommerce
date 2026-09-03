@@ -3,10 +3,12 @@ import { useCart } from "@/context/CartContext";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
+
 export const Header = () => {
   const pathname = usePathname();
 
   const { cart } = useCart();
+ 
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 

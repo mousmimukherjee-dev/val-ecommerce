@@ -6,7 +6,7 @@ import { UserContext, UserContextProps, UserProps } from "./UserContext";
 export const UserContextProvider=({children}:{children:ReactNode})=>{
 
 
-  const[user , setUser] = useState<UserProps[]>([])
+  const[user , setUser] = useState<UserProps | null>(null)
 
 
   return(

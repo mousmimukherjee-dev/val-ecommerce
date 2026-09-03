@@ -12,7 +12,7 @@ const Signin = () => {
   const { setUser } = useUser();
 
   const handleLogin = () => {
-    setUser((prev) => [...prev, { email, password }]);
+    setUser({ email, password });
     router.push("/");
   };
   return (
