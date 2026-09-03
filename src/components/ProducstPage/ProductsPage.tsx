@@ -39,7 +39,7 @@ const ProductsPage = () => {
   
 
   return (
-    <div className="grid grid-cols-4 gap-8 py-5 w-[80%] mx-auto h-auto font-body">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-5 w-[80%] mx-auto h-auto font-body">
       {products.map((item) => {
         const href =
           item.category === "All"
@@ -49,7 +49,7 @@ const ProductsPage = () => {
           <Link href={href} key={item.id} className="group border p-2 border-gray-light rounded-xl">
             <div className="relative flex justify-center items-center overflow-hidden ">
          
-              <div className="relative w-82.5 h-110 overflow-hidden ">
+              <div className="relative w-82.5 h-50 md:h-110 overflow-hidden ">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -69,7 +69,7 @@ const ProductsPage = () => {
               {item.name}
             </p>{" "}
             <p data-testid="product-price" className="text-gray-dark">
-              {item.price} SEK
+              {Math.floor(item.price)} SEK
             </p>
           </Link>
         );

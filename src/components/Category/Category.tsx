@@ -40,12 +40,12 @@ const Category = ({ params }: { params: Promise<{ category: string }> }) => {
   );
 
   return (
-    <div className="grid grid-cols-4 font-body w-[80%] h-auto mx-auto">
+    <div className="grid grid-cols-2 gap-8 md:grid-cols-4 font-body w-[80%] h-auto mx-auto py-5">
       {productsCategory.map((item) => {
         return (
-          <Link href={`/productpage/${item.id}/${item.category}`} key={item.id} className="group ">
+          <Link href={`/productpage/${item.id}/${item.category}`} key={item.id} className="group p-2 border border-gray-light rounded-xl">
             <div className="relative flex justify-center items-center overflow-hidden">
-               <div className="relative w-82.5 h-110 overflow-hidden">
+               <div className="relative w-82.5 h-50 md:h-110  overflow-hidden">
                               <Image
                                 src={item.image}
                                 alt={item.name}
@@ -62,7 +62,7 @@ const Category = ({ params }: { params: Promise<{ category: string }> }) => {
               </button>
             </div>
             <p className="">{item.name}</p>{" "}
-            <p className="text-gray-dark">{item.price}SEK</p>
+            <p className="text-gray-dark">{Math.floor(item.price)} SEK</p>
           </Link>
         );
       })}

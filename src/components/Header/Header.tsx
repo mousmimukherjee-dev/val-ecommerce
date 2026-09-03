@@ -13,10 +13,10 @@ export const Header = () => {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className={`${pathname === "/signin" ? "hidden" : ""} w-full font-body p-6 relative flex justify-center items-center border-b border-gray-light`}>
+    <header className={`${pathname === "/signin" ? "hidden" : ""} w-full font-body p-6 relative flex justify-between md:justify-center items-center border-b border-gray-light`}>
       <Link
         href="/"
-        className= "text-black text-5xl font-heading space font-bold"
+        className= "text-black text-3xl md:text-5xl font-heading space font-bold"
       >
         VAL
       </Link>
