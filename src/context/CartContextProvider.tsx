@@ -11,12 +11,13 @@ const CartContextProvider = ({ children }: { children: ReactNode }) => {
 
     const cartItems = localStorage.getItem("cartItems")
 
-    if(cartItems !== null){
+    if(cartItems){
      
       const savedItems:CartItemsProps[] = JSON.parse(cartItems)
       setCart(savedItems)
-      setIsloaded(true)
+      
     }
+    setIsloaded(true)
   },[])
 
   useEffect(()=> {
