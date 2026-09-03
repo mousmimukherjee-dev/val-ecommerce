@@ -39,17 +39,17 @@ const ProductsPage = () => {
   
 
   return (
-    <div className="grid grid-cols-4 gap-8 py-5 max-w-7xl mx-auto h-110 font-body">
+    <div className="grid grid-cols-4 gap-8 py-5 w-[80%] mx-auto h-auto font-body">
       {products.map((item) => {
         const href =
           item.category === "All"
             ? "/products"
             : `/productpage/${item.id}/${item.category}`;
         return (
-          <Link href={href} key={item.id} className="group">
-            <div className="relative flex justify-center items-center overflow-hidden">
+          <Link href={href} key={item.id} className="group border p-2 border-gray-light rounded-xl">
+            <div className="relative flex justify-center items-center overflow-hidden ">
          
-              <div className="relative w-82.5 h-110 overflow-hidden">
+              <div className="relative w-82.5 h-110 overflow-hidden ">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -59,7 +59,7 @@ const ProductsPage = () => {
                 />
               </div>
               <button
-                className="w-fit z-50 cursor-pointer px-19 py-2  absolute bottom-4 text-center mx-auto bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-75"
+                className="w-fit  z-50 cursor-pointer px-19 py-2  absolute bottom-4 text-center mx-auto bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-75"
                 onClick={(e) => addToCart(e, item)}
               >
                 Add to bag

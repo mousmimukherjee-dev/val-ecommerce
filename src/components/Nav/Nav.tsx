@@ -3,10 +3,12 @@ import { productsData } from "@/data/data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useApiCall } from "@/context/ApiCallContext";
 
 const Nav = () => {
 
   const pathname = usePathname();
+  const { products} = useApiCall();
 
   const[activeCategory , setActiveCategory] = useState("")
 
@@ -31,8 +33,8 @@ const Nav = () => {
   }
 
   const categories = [
-    "All",
-    ...new Set(productsData.map((product) => product.category)),
+    "ALL",
+    ...new Set(products.map((product) => product.category)),
   ];
   return (
     <div data-testid="navbar" className="flex font-body justify-between p-6 border-b border-gray-light text-gray-dark">
@@ -40,7 +42,7 @@ const Nav = () => {
         <ul className="flex justify-start items-center">
           {categories.map((category) => {
             const href =
-              category === "All" ? "/products" : `/products/${category}`;
+              category === "ALL" ? "/products" : `/products/${category}`;
             return (
               <li key={category} className="px-4">
                 <Link href={href} onClick={()=>handelActiveCategory(category)} className={activeCategory === category ? "border-b-2 pb-6.5 border-b-black " : ""}>{category}</Link>

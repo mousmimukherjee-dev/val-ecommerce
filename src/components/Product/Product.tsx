@@ -1,9 +1,11 @@
 "use client";
+import { useApiCall } from "@/context/ApiCallContext";
 import { useCart } from "@/context/CartContext";
 import { productsData } from "@/data/data";
 import { CartItemsProps, ProductProps } from "@/types/types";
 import Image from "next/image";
 import { use } from "react";
+
 
 const Product = ({
   params,
@@ -11,8 +13,9 @@ const Product = ({
   params: Promise<{ id: string; category: string }>;
 }) => {
   const { id } = use(params);
+  const { products} = useApiCall()
 
-  const productsInfo = productsData.filter(
+  const productsInfo = products.filter(
     (product) => product.id === Number(id),
   );
 
@@ -41,19 +44,19 @@ const Product = ({
     <div className="font-body">
       {productsInfo.map((item) => {
         return (
-          <div key={item.id} className="flex justify-evenly p-10">
-            <div>
+          <div key={item.id} className="grid grid-cols-2 mt-8 w-[80%] mx-auto">
+            <div className="w-100 h-100 relative">
               <Image
                 src={item.image}
                 alt="product-img"
-                loading="eager"
-                width={80}
-                height={80}
-                className="w-100 h-150 object-cover"
+                
+                fill
+                sizes="50vw"
+                className="object cover"
               />
             </div>
 
-            <div>
+            <div className="w-[80%]">
               <div className="border-b border-b-gray-light flex flex-col gap-2 pb-3">
                 <p data-testid="product-category" className="text-gray-dark ">{item.category}</p>
                 <h3 data-testid="product-name"  className="text-black ">{item.name}</h3>
