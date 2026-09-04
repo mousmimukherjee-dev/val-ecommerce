@@ -44,20 +44,20 @@ const Product = ({
     <div className="font-body">
       {productsInfo.map((item) => {
         return (
-          <div key={item.id} className="grid grid-cols-2 mt-8 w-[80%] mx-auto">
-            <div className="w-100 h-100 relative">
+          <div key={item.id} className="grid grid-cols-2 gap-7 md:gap-0 mt-8 md:w-[80%] mx-auto">
+            <div className="md:w-100 w-50 h-100 relative">
               <Image
                 src={item.image}
                 alt="product-img"
                 
                 fill
-                sizes="50vw"
-                className="object cover"
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="md:object cover object-contain"
               />
             </div>
 
-            <div className="w-[80%]">
-              <div className="border-b border-b-gray-light flex flex-col gap-2 pb-3">
+            <div className="px-3 py-2">
+              <div className="border-b border-b-gray-light flex flex-col gap-1 md:gap-2 pb-3">
                 <p data-testid="product-category" className="text-gray-dark ">{item.category}</p>
                 <h3 data-testid="product-name"  className="text-black ">{item.name}</h3>
                 <p data-testid="product-price" className="text-gray-dark">{item.price} {" "}SEK</p>
