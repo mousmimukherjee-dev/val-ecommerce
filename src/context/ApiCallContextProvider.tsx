@@ -43,7 +43,7 @@ export const ApiCallContextProvider = ({
 
         setProducts(apiCallProduct);
       } catch (error) {
-        throw new Error(`Request failed ${error}`);
+        console.log("Fetch failed!",error);
       }
     };
 
