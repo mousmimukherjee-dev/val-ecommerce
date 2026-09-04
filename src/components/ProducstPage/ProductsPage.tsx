@@ -58,12 +58,25 @@ const ProductsPage = () => {
                   className="object-contain group-hover:scale-[1.03]"
                 />
               </div>
-              <button
-                className="w-fit  z-50 cursor-pointer px-19 py-2  absolute bottom-4 text-center mx-auto bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-75"
-                onClick={(e) => addToCart(e, item)}
-              >
-                Add to bag
-              </button>
+             <button
+  className="absolute bottom-3 flex items-center justify-center
+        w-[90%] md:w-[80%]
+        cursor-pointer
+         md:shadow-2xl
+        md:shadow-gray-dark
+        px-3 py-4
+        text-xs md:text-sm
+        whitespace-nowrap
+        text-center
+        bg-white
+        opacity-100
+        md:opacity-0
+        group-hover:opacity-100
+        transition-opacity duration-200"
+  onClick={(e) => addToCart(e, item)}
+>
+  Add to bag
+</button>
             </div>
             <p data-testid="product-name" className="">
               {item.name}
