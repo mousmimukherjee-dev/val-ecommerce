@@ -59,7 +59,7 @@ const Nav = () => {
           })}
         </ul>
       </div>
-      <div className="flex items-center ">
+      <div className="md:flex items-center hidden ">
         <p className="px-3">Sort:</p>
         <p className="px-3">Price Low</p>
         <p className="px-3">Price High</p>
