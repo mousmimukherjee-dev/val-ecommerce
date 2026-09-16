@@ -1,6 +1,6 @@
 import Cart from "@/components/Cart/Cart";
 import Nav from "@/components/Nav/Nav";
-import ProductsPage from "@/components/ProducstPage/ProductsPage";
+import ProductsPage from "@/components/ProductsContent/ProductsContent";
 import Product from "@/components/Product/Product";
 import CartContextProvider from "@/context/CartContextProvider";
 import { fireEvent, render, screen } from "@testing-library/react";

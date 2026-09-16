@@ -7,7 +7,7 @@ import { useCart } from "@/context/CartContext";
 import { useApiCall } from "@/context/ApiCallContext";
 import { useSearchParams } from "next/navigation";
 
-const ProductsPage = () => {
+const ProductsContent = () => {
   const { setCart } = useCart();
   const { products } = useApiCall();
   const searchParams = useSearchParams();
@@ -99,4 +99,4 @@ const ProductsPage = () => {
   );
 };
 
-export default ProductsPage;
+export default ProductsContent;

@@ -1,5 +1,5 @@
 "use client";
-import ProductsPage from "@/components/ProducstPage/ProductsPage";
+import ProductsPage from "@/components/ProductsContent/ProductsContent";
 import { useUser } from "@/context/UserContext";
 import Image from "next/image";
 import Link from "next/link";

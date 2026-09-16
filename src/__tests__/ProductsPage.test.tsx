@@ -1,5 +1,5 @@
 import Cart from "@/components/Cart/Cart";
-import ProductsPage from "@/components/ProducstPage/ProductsPage";
+import ProductsPage from "@/components/ProductsContent/ProductsContent";
 import CartContextProvider from "@/context/CartContextProvider";
 import { fireEvent, render, screen } from "@testing-library/react";
 

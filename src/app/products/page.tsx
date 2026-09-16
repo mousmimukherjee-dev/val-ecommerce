@@ -1,9 +1,12 @@
-import ProductsPage from "@/components/ProducstPage/ProductsPage"
+import ProductsContent from "@/components/ProductsContent/ProductsContent";
+import { Suspense } from "react";
 
-const products=()=>{
+const products = () => {
+  return (
+    <Suspense fallback={<div>Loading ...</div>}>
+      <ProductsContent />;
+    </Suspense>
+  );
+};
 
-  return <ProductsPage />
-}
-
-
-export default products
+export default products;
