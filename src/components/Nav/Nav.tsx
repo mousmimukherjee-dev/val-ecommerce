@@ -1,13 +1,12 @@
 "use client";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter} from "next/navigation";
 import { useState } from "react";
 import { useApiCall } from "@/context/ApiCallContext";
 
 const Nav = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const searchParams = useSearchParams();
   const { products } = useApiCall();
   const [activeCategory, setActiveCategory] = useState("");
   
