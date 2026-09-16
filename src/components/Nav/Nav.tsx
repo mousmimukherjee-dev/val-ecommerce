@@ -1,15 +1,24 @@
 "use client";
-import { productsData } from "@/data/data";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useApiCall } from "@/context/ApiCallContext";
 
 const Nav = () => {
   const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { products } = useApiCall();
-
   const [activeCategory, setActiveCategory] = useState("");
+  
+
+  const handleLowPrice = () => {
+    router.push("/products?sort=low");
+  };
+
+  const handleHighPrice = () => {
+    router.push("/products?sort=high");
+  };
 
   if (pathname === "/cartpage") {
     return null;
@@ -48,8 +57,8 @@ const Nav = () => {
                   onClick={() => handelActiveCategory(category)}
                   className={
                     activeCategory === category
-                      ? "border-b-2 pb-6.5 border-b-black "
-                      : ""
+                      ? "capitalize border-b-2 pb-6.5 border-b-black "
+                      : "capitalize"
                   }
                 >
                   {category}
@@ -61,8 +70,12 @@ const Nav = () => {
       </div>
       <div className="md:flex items-center hidden ">
         <p className="px-3">Sort:</p>
-        <p className="px-3">Price Low</p>
-        <p className="px-3">Price High</p>
+        <p className="px-3 cursor-pointer" onClick={handleLowPrice}>
+          Price Low
+        </p>
+        <p className="px-3 cursor-pointer" onClick={handleHighPrice}>
+          Price High
+        </p>
       </div>
     </div>
   );

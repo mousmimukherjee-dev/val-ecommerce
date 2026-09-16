@@ -54,7 +54,7 @@ const Cart = () => {
       {cart.length > 0 && (
         <div
           data-testid="product-cart"
-          className="grid grid-cols-1 gap-6 py-6 md:grid-cols-2 w-[80%] mx-auto"
+          className="grid grid-cols-1 gap-6 py-6 md:grid-cols-2 w-[80%] max-w-6xl mx-auto items-start"
         >
           <div className="flex flex-col">
             {cart.map((item) => (

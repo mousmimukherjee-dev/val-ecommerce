@@ -2,18 +2,25 @@
 import { productsData } from "@/data/data";
 import Link from "next/link";
 import Image from "next/image";
-
-import { CartItemsProps, ProductProps } from "@/types/types";
+import { ProductProps } from "@/types/types";
 import { useCart } from "@/context/CartContext";
-import { useEffect, useState } from "react";
-import { useUser } from "@/context/UserContext";
-import { ApiCallContextProvider } from "@/context/ApiCallContextProvider";
 import { useApiCall } from "@/context/ApiCallContext";
+import { useSearchParams } from "next/navigation";
 
 const ProductsPage = () => {
-  
   const { setCart } = useCart();
-  const { products } = useApiCall()
+  const { products } = useApiCall();
+  const searchParams = useSearchParams();
+  const sortedProducts = [...products];
+  const sort = searchParams.get("sort");
+
+  if (sort === "low") {
+    sortedProducts.sort((a, b) => a.price - b.price);
+  }
+
+  if (sort === "high") {
+    sortedProducts.sort((a, b) => b.price - a.price);
+  }
 
   const addToCart = (
     e: React.MouseEvent<HTMLButtonElement>,
@@ -36,19 +43,20 @@ const ProductsPage = () => {
     });
   };
 
-  
-
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-5 w-[80%] mx-auto h-auto font-body">
-      {products.map((item) => {
+      {sortedProducts.map((item) => {
         const href =
           item.category === "All"
             ? "/products"
             : `/productpage/${item.id}/${item.category}`;
         return (
-          <Link href={href} key={item.id} className="group border p-2 border-gray-light rounded-xl">
+          <Link
+            href={href}
+            key={item.id}
+            className="group border p-2 border-gray-light rounded-xl"
+          >
             <div className="relative flex justify-center items-center overflow-hidden ">
-         
               <div className="relative w-82.5 h-50 md:h-110 overflow-hidden ">
                 <Image
                   src={item.image}
@@ -58,8 +66,8 @@ const ProductsPage = () => {
                   className="object-contain group-hover:scale-[1.03]"
                 />
               </div>
-             <button
-  className="absolute bottom-3 flex items-center justify-center
+              <button
+                className="absolute bottom-3 flex items-center justify-center
         w-[90%] md:w-[80%]
         cursor-pointer
          md:shadow-2xl
@@ -73,10 +81,10 @@ const ProductsPage = () => {
         md:opacity-0
         group-hover:opacity-100
         transition-opacity duration-200"
-  onClick={(e) => addToCart(e, item)}
->
-  Add to bag
-</button>
+                onClick={(e) => addToCart(e, item)}
+              >
+                Add to bag
+              </button>
             </div>
             <p data-testid="product-name" className="">
               {item.name}
