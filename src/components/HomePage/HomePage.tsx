@@ -1,11 +1,13 @@
 "use client";
 import ProductsPage from "@/components/ProductsContent/ProductsContent";
+import { useCart } from "@/context/CartContext";
 import { useUser } from "@/context/UserContext";
 import Image from "next/image";
 import Link from "next/link";
 
 const HomePage = () => {
   const { user, setUser } = useUser();
+  const { setCart} = useCart()
 
   return (
     <main className="grid grid-cols-2 gap-4 ">
@@ -45,6 +47,8 @@ const HomePage = () => {
             onClick={(e) => {
               if (user) {
                 e.preventDefault();
+                setCart([])
+                localStorage.removeItem("cartItems")
                 setUser(null);
               }
             }}

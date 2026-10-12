@@ -5,34 +5,26 @@ import { CartItemsProps, ProductProps } from "@/types/types";
 
 const CartContextProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItemsProps[]>([]);
-  const [isLoaded , setIsloaded] = useState(false)
+  const [isLoaded, setIsloaded] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
+    const cartItems = localStorage.getItem("cartItems");
 
-    const cartItems = localStorage.getItem("cartItems")
-
-    if(cartItems){
-     
-      const savedItems:CartItemsProps[] = JSON.parse(cartItems)
-      setCart(savedItems)
-      
+    if (cartItems) {
+      const savedItems: CartItemsProps[] = JSON.parse(cartItems);
+      setCart(savedItems);
     }
-    setIsloaded(true)
-  },[])
+    setIsloaded(true);
+  }, []);
 
-  useEffect(()=> {
-
-    if(isLoaded){
-     
-       localStorage.setItem("cartItems", JSON.stringify(cart))
-
+  useEffect(() => {
+    if (isLoaded) {
+      localStorage.setItem("cartItems", JSON.stringify(cart));
     }
-
-   
-  },[cart , isLoaded])
+  }, [cart, isLoaded]);
 
   return (
-    <CartContext.Provider value={{ cart, setCart}}>
+    <CartContext.Provider value={{ cart, setCart }}>
       {children}
     </CartContext.Provider>
   );
