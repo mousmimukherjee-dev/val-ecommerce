@@ -3,11 +3,13 @@ import Link from "next/link";
 import { usePathname, useRouter} from "next/navigation";
 import { useState } from "react";
 import { useApiCall } from "@/context/ApiCallContext";
+import { UserContext, useUser } from "@/context/UserContext";
 
 const Nav = () => {
   const pathname = usePathname();
   const router = useRouter();
   const { products } = useApiCall();
+  const {user } = useUser();
   const [activeCategory, setActiveCategory] = useState("");
   
 
@@ -40,7 +42,9 @@ const Nav = () => {
     ...new Set(products.map((product) => product.category)),
   ];
   return (
-    <div
+
+    <>
+    {user && <div
       data-testid="navbar"
       className="flex font-body justify-between p-6 border-b border-gray-light text-gray-dark"
     >
@@ -76,7 +80,10 @@ const Nav = () => {
           Price High
         </p>
       </div>
-    </div>
+    </div>}
+    </>
+    
+    
   );
 };
 
