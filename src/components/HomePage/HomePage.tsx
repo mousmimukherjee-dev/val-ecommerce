@@ -1,13 +1,14 @@
 "use client";
-import ProductsPage from "@/components/ProductsContent/ProductsContent";
 import { useCart } from "@/context/CartContext";
 import { useUser } from "@/context/UserContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const HomePage = () => {
   const { user, setUser } = useUser();
   const { setCart} = useCart()
+  const [error,  setError] = useState("")
 
   return (
     <main className="grid grid-cols-2 gap-4 ">
@@ -22,6 +23,7 @@ const HomePage = () => {
         />
       </div>
       <div className="flex flex-col items-right gap-4 md:gap-8 pt-20 md:pt-40">
+        {error && <p className="text-xs md:text-xl text-red-500 mt-2">{error}</p>}
         {user?.email && (
           <p className="text-gray-dark text-xl">Welcome, {user?.email}!</p>
         )}
@@ -36,11 +38,20 @@ const HomePage = () => {
         <div className="flex gap-2 md:gap-3 justify-start items-center pr-1.5">
           <Link
             href="/products"
+            onClick={(e)=> {
+              if(!user){
+
+                e.preventDefault()
+                setError("Please log in to shop!")
+              }else{
+                setError("")
+              }
+            }}
             className="border border-black text-black text-xs md:text-sm py-2.5 md:py-3 px-5 md:px-7 text-center hover:bg-black hover:text-white"
           >
             SHOP NOW
           </Link>
-
+           
           <Link
             href={user ? "#" : "/signin"}
             className="border border-black text-black text-xs md:text-sm py-2.5 md:py-3 px-5 md:px-7 text-center hover:bg-black hover:text-white"
