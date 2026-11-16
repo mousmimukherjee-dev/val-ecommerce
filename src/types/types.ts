@@ -1,3 +1,4 @@
+
 export interface ProductProps {
   id: number;
   name: string;
@@ -5,11 +6,10 @@ export interface ProductProps {
   image: string;
   description: string;
   price: number;
+  materials?: string[];
+  styleTags?: string[];
 }
 
 export interface CartItemsProps extends ProductProps {
   quantity: number;
 }
-
-
-

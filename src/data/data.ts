@@ -1,6 +1,4 @@
-
 import { ProductProps } from "@/types/types";
-
 
 export const productsData: ProductProps[] = [
   {
@@ -10,6 +8,8 @@ export const productsData: ProductProps[] = [
     category: "Women",
     image: "/images/linen-shirt.jpg",
     description: "A relaxed linen shirt with a lightweight, effortless feel.",
+    materials: ["Linen"],
+    styleTags: ["Relaxed", "Effortless"],
   },
   {
     id: 2,
@@ -18,6 +18,8 @@ export const productsData: ProductProps[] = [
     category: "Women",
     image: "/images/silk-slip-dress.jpg",
     description: "A fluid silk dress with an elegant and minimal silhouette.",
+    materials: ["Silk"],
+    styleTags: ["Elegant", "Minimal"],
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ export const productsData: ProductProps[] = [
     category: "Women",
     image: "/images/wide-leg-trousers.jpg",
     description: "Relaxed wide-leg trousers with a clean, timeless fit.",
+    styleTags: ["Relaxed", "Clean", "Timeless"],
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const productsData: ProductProps[] = [
     category: "Men",
     image: "/images/trench-coat.jpg",
     description: "A classic trench coat with a refined, versatile design.",
+    styleTags: ["Classic", "Refined", "Versatile"],
   },
   {
     id: 5,
@@ -42,6 +46,7 @@ export const productsData: ProductProps[] = [
     category: "Men",
     image: "/images/tapered-trousers.jpg",
     description: "Modern tapered trousers designed for a clean, tailored look.",
+    styleTags: ["Modern", "Clean", "Tailored"],
   },
   {
     id: 6,
@@ -49,7 +54,10 @@ export const productsData: ProductProps[] = [
     price: 135,
     category: "Men",
     image: "/images/canvas-utility-jacket.jpg",
-    description: "A durable canvas jacket with a practical utility-inspired style.",
+    description:
+      "A durable canvas jacket with a practical utility-inspired style.",
+    materials: ["Canvas"],
+    styleTags: ["Practical", "Utility"],
   },
   {
     id: 7,
@@ -58,6 +66,8 @@ export const productsData: ProductProps[] = [
     category: "Kids",
     image: "/images/striped-cotton-tee.jpg",
     description: "A soft cotton tee with classic stripes for everyday comfort.",
+    materials: ["Cotton"],
+    styleTags: ["Classic", "Everyday"],
   },
   {
     id: 8,
@@ -65,7 +75,9 @@ export const productsData: ProductProps[] = [
     price: 38,
     category: "Kids",
     image: "/images/dungarees.jpg",
-    description: "Comfortable everyday dungarees made for easy movement and play.",
+    description:
+      "Comfortable everyday dungarees made for easy movement and play.",
+    styleTags: ["Comfortable", "Everyday"],
   },
   {
     id: 9,
@@ -73,7 +85,10 @@ export const productsData: ProductProps[] = [
     price: 120,
     category: "Home",
     image: "/images/linen-duvet-cover.jpg",
-    description: "A breathable linen duvet cover with a relaxed natural texture.",
+    description:
+      "A breathable linen duvet cover with a relaxed natural texture.",
+    materials: ["Linen"],
+    styleTags: ["Relaxed", "Natural"],
   },
   {
     id: 10,
@@ -82,6 +97,8 @@ export const productsData: ProductProps[] = [
     category: "Home",
     image: "/images/ceramic-mug-set.jpg",
     description: "A minimalist ceramic mug set made for everyday use.",
+    materials: ["Ceramic"],
+    styleTags: ["Minimalist", "Everyday"],
   },
   {
     id: 11,
@@ -90,6 +107,7 @@ export const productsData: ProductProps[] = [
     category: "Beauty",
     image: "/images/rosehip-face-oil.jpg",
     description: "A lightweight face oil with a nourishing, silky finish.",
+    styleTags: ["Lightweight", "Nourishing"],
   },
   {
     id: 12,
@@ -97,7 +115,8 @@ export const productsData: ProductProps[] = [
     price: 28,
     category: "Beauty",
     image: "/images/hydrating-body-cream.jpg",
-    description: "A rich body cream that leaves skin feeling soft and hydrated.",
+    description:
+      "A rich body cream that leaves skin feeling soft and hydrated.",
+    styleTags: ["Rich", "Hydrating"],
   },
-]
-
+];

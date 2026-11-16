@@ -6,6 +6,7 @@ import Nav from "@/components/Nav/Nav";
 import CartContextProvider from "@/context/CartContextProvider";
 import { UserContextProvider } from "@/context/UserContextProvider";
 import { ApiCallContextProvider } from "@/context/ApiCallContextProvider";
+import ShoppingAssistant from "@/components/ShoppingAssistant/ShoppingAssistant";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <Header />
               <Nav />
               {children}
+              <ShoppingAssistant />
             </CartContextProvider>
           </ApiCallContextProvider>
         </UserContextProvider>
