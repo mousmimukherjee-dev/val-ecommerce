@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { use } from "react";
@@ -54,7 +53,8 @@ const Category = ({ params }: { params: Promise<{ category: string }> }) => {
           </div>
 
           <p className="text-sm text-[#77736c]">
-            {productsCategory.length} {productsCategory.length === 1 ? "piece" : "pieces"}
+            {productsCategory.length}{" "}
+            {productsCategory.length === 1 ? "piece" : "pieces"}
           </p>
         </div>
       </section>

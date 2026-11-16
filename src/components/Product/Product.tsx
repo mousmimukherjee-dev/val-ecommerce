@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useApiCall } from "@/context/ApiCallContext";
@@ -17,9 +16,7 @@ const Product = ({
   const { products } = useApiCall();
   const { setCart } = useCart();
 
-  const productsInfo = products.filter(
-    (product) => product.id === Number(id),
-  );
+  const productsInfo = products.filter((product) => product.id === Number(id));
 
   const addToCart = (product: ProductProps) => {
     setCart((prev) => {
@@ -66,10 +63,7 @@ const Product = ({
             </p>
           </div>
 
-          
           <section className="mx-auto grid max-w-[1440px] grid-cols-1 gap-8 px-5 md:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-            
-          
             <div className="relative">
               <div className="relative aspect-[4/5] overflow-hidden bg-[#f0eee9]">
                 <Image
@@ -94,7 +88,6 @@ const Product = ({
               </div>
             </div>
 
-           
             <div className="flex flex-col justify-center py-5 lg:py-12">
               <div className="max-w-xl">
                 <p className="font-body text-xs uppercase tracking-[0.25em] text-gray-500">
@@ -121,7 +114,6 @@ const Product = ({
                   </span>
                 </div>
 
-               
                 <div className="py-8">
                   <p className="font-body text-[10px] uppercase tracking-[0.2em] text-gray-400">
                     The details
@@ -135,7 +127,6 @@ const Product = ({
                   </p>
                 </div>
 
-                
                 <button
                   type="button"
                   onClick={() => addToCart(item)}

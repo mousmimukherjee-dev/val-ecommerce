@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -14,11 +13,7 @@ const Nav = () => {
   const { products } = useApiCall();
   const { user } = useUser();
 
-  if (
-    pathname === "/cartpage" ||
-    pathname === "/" ||
-    pathname === "/signin"
-  ) {
+  if (pathname === "/cartpage" || pathname === "/" || pathname === "/signin") {
     return null;
   }
 
@@ -51,9 +46,7 @@ const Nav = () => {
             <ul className="flex items-center gap-7 md:gap-9 min-w-max">
               {categories.map((category) => {
                 const href =
-                  category === "All"
-                    ? "/products"
-                    : `/products/${category}`;
+                  category === "All" ? "/products" : `/products/${category}`;
 
                 const isActive =
                   activeCategory.toLowerCase() === category.toLowerCase();

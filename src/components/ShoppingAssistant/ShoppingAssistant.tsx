@@ -1,4 +1,3 @@
-
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
@@ -155,9 +154,7 @@ export default function ShoppingAssistant() {
   // Add one product to the existing cart.
   const addToBag = (product: ProductProps) => {
     setCart((previous) => {
-      const existingProduct = previous.find(
-        (item) => item.id === product.id,
-      );
+      const existingProduct = previous.find((item) => item.id === product.id);
 
       if (existingProduct) {
         return previous.map((item) =>
@@ -180,17 +177,13 @@ export default function ShoppingAssistant() {
         message.id === messageId
           ? {
               ...message,
-              productIds: message.productIds?.filter(
-                (id) => id !== productId,
-              ),
+              productIds: message.productIds?.filter((id) => id !== productId),
             }
           : message,
       ),
     );
 
-    setCart((previous) =>
-      previous.filter((item) => item.id !== productId),
-    );
+    setCart((previous) => previous.filter((item) => item.id !== productId));
 
     showNotification("Product removed from your bag and chat.");
   };
@@ -268,10 +261,9 @@ export default function ShoppingAssistant() {
                   </p>
 
                   <p className="mt-2 font-body text-sm leading-relaxed text-gray-600">
-                    Ask me for product recommendations, help finding
-                    something within your budget, or assistance with
-                    your shopping bag. I&apos;ll help you discover pieces
-                    from the VAL collection.
+                    Ask me for product recommendations, help finding something
+                    within your budget, or assistance with your shopping bag.
+                    I&apos;ll help you discover pieces from the VAL collection.
                   </p>
                 </div>
 

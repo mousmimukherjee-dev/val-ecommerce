@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -62,8 +61,8 @@ const ProductsContent = () => {
           </div>
 
           <p className="max-w-xs text-sm leading-7 text-gray-500 md:text-right">
-            Thoughtful pieces for everyday living. Explore the collection
-            and find something that feels like you.
+            Thoughtful pieces for everyday living. Explore the collection and
+            find something that feels like you.
           </p>
         </div>
 
@@ -97,11 +96,7 @@ const ProductsContent = () => {
                   : `/productpage/${item.id}/${item.category}`;
 
               return (
-                <Link
-                  href={href}
-                  key={item.id}
-                  className="group min-w-0"
-                >
+                <Link href={href} key={item.id} className="group min-w-0">
                   <div className="relative overflow-hidden bg-[#f0eee9]">
                     <div className="relative aspect-[3/4] w-full">
                       <Image
@@ -172,8 +167,8 @@ const ProductsContent = () => {
           </div>
 
           <p className="max-w-sm text-sm leading-7 text-gray-500">
-            Explore the VAL collection at your own pace and discover pieces
-            that fit your style and everyday life.
+            Explore the VAL collection at your own pace and discover pieces that
+            fit your style and everyday life.
           </p>
         </div>
       </section>
