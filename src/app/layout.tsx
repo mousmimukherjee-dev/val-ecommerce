@@ -7,6 +7,7 @@ import CartContextProvider from "@/context/CartContextProvider";
 import { UserContextProvider } from "@/context/UserContextProvider";
 import { ApiCallContextProvider } from "@/context/ApiCallContextProvider";
 import ShoppingAssistant from "@/components/ShoppingAssistant/ShoppingAssistant";
+import { Suspense } from "react";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -37,7 +38,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ApiCallContextProvider>
             <CartContextProvider>
               <Header />
-              <Nav />
+              <Suspense fallback={null}>
+                <Nav />
+              </Suspense>
               {children}
               <ShoppingAssistant />
             </CartContextProvider>
