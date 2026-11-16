@@ -41,7 +41,7 @@ export default function ShoppingAssistant() {
     null,
   );
 
-  // Restore previous chat after the component mounts.
+
   useEffect(() => {
     try {
       const savedMessages = localStorage.getItem(STORAGE_KEY);
@@ -56,14 +56,13 @@ export default function ShoppingAssistant() {
     setIsLoaded(true);
   }, []);
 
-  // Save conversation in the browser.
+  
   useEffect(() => {
     if (isLoaded) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     }
   }, [messages, isLoaded]);
 
-  // Keep the latest message visible.
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading, isOpen]);
@@ -77,7 +76,6 @@ export default function ShoppingAssistant() {
     };
   }, []);
 
-  // Display a temporary notification.
   const showNotification = (text: string) => {
     setNotification(text);
 
@@ -151,7 +149,7 @@ export default function ShoppingAssistant() {
     }
   };
 
-  // Add one product to the existing cart.
+
   const addToBag = (product: ProductProps) => {
     setCart((previous) => {
       const existingProduct = previous.find((item) => item.id === product.id);
@@ -170,7 +168,6 @@ export default function ShoppingAssistant() {
     showNotification("Product has been added to your bag.");
   };
 
-  // Remove only this recommendation card and remove its product from the cart.
   const removeProductCard = (messageId: string, productId: number) => {
     setMessages((previous) =>
       previous.map((message) =>
@@ -196,7 +193,7 @@ export default function ShoppingAssistant() {
 
   return (
     <>
-      {/* Floating assistant button */}
+
       {!isOpen && (
         <button
           type="button"
@@ -211,7 +208,7 @@ export default function ShoppingAssistant() {
         </button>
       )}
 
-      {/* Chat panel */}
+
       {isOpen && (
         <section className="fixed bottom-5 right-5 z-50 flex h-[min(680px,calc(100vh-40px))] w-[min(400px,calc(100vw-40px))] flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-2xl">
           {/* Header */}
@@ -395,7 +392,7 @@ export default function ShoppingAssistant() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
+     
           <form
             onSubmit={handleSend}
             className="flex items-center gap-2 border-t border-gray-200 bg-white p-4"
@@ -422,7 +419,7 @@ export default function ShoppingAssistant() {
         </section>
       )}
 
-      {/* Add to bag / remove notification */}
+    
       {notification && (
         <div
           role="status"
