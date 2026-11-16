@@ -1,122 +1,102 @@
-# VAL — Minimal Fashion E-Commerce
+# VAL | Minimal Fashion E-Commerce
 
-VAL is a minimal fashion e-commerce application with an editorial-inspired design. It allows visitors to browse products by category, view individual product details, add items to a shopping bag, adjust quantities, and see a live order summary with an automatically calculated discount and total.
+VAL is a minimal fashion e-commerce application with an editorial-inspired design. Users can browse products across different categories, view product details, manage their shopping bag, and receive product recommendations through an AI-powered shopping assistant.
 
----
+The application combines a responsive shopping experience with product discovery, cart management, authentication, and AI-assisted shopping.
 
 ## Tech Stack
 
-- **Framework:** Next.js (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **State management:** React Context API
-- **Testing:** Jest + React Testing Library
-- **Testing utilities:** `@testing-library/react`, `@testing-library/jest-dom`
-
----
+- Framework: Next.js (App Router)
+- Language: TypeScript
+- Styling: Tailwind CSS
+- State Management: React Context API
+- AI Integration: Google Gemini API
+- Testing: Jest and React Testing Library
+- Testing Utilities: @testing-library/react, @testing-library/jest-dom
+- Icons: Lucide React
 
 ## Features
 
-### Product browsing
+### Product Browsing
 
-- Products can be browsed from the main products page.
-- Products can be filtered by category.
-- The available categories are:
-  - Women
-  - Men
-  - Kids
-  - Home
-  - Beauty
+- Browse the complete product collection.
+- Filter products by category.
+- Sort products by price, from low to high or high to low.
+- View product images, names, categories, and prices.
+- Navigate between the product listing and individual product pages.
 
-### Product details
+Available categories:
 
-- Each product has its own detail page.
-- The product detail page displays:
-  - Product image
-  - Product name
-  - Product description
-  - Product price
-  - "Add to Bag" button
+- Women
+- Men
+- Kids
+- Home
+- Beauty
 
-### Bag 
+### Product Details
 
-- Removing a product decreases its quantity by one.
-- A product is removed entirely from the bag once its quantity reaches zero.
-- The order summary (subtotal, discount, total) updates automatically whenever the cart changes.
-- When the bag is empty, an empty-state message is displayed:
-  - Heading: "YOUR BASKET IS EMPTY"
-  - Subtext: "The items you add will be shown here"
+Each product has an individual detail page displaying:
 
-### Order summary
+- Product image
+- Product name
+- Product description
+- Product price
+- Add to Bag functionality
 
-The shopping bag displays a live order summary containing:
+### Shopping Bag
+
+- Add products to the shopping bag.
+- Increase product quantities when adding an existing item.
+- Decrease product quantities.
+- Remove products when their quantity reaches zero.
+- View the total number of items in the header.
+- Keep shopping bag data persistent using localStorage.
+- View an empty-state message when the bag contains no products.
+
+### Order Summary
+
+The shopping bag includes a live order summary displaying:
 
 - Subtotal
 - Discount
-- Total
+- Total amount
 
-The values update automatically when products are added, removed, or their quantities change.
+The order summary updates automatically when products are added, removed, or their quantities change.
 
-The discount is calculated as **10% of the subtotal**.
+A 15% discount is calculated based on the subtotal.
 
-### Navigation
+### Authentication
 
-- The navigation contains links to the product categories.
-- The navigation also provides price sorting options.
-- The navigation is hidden on the cartpage.
-- The header contains the VAL wordmark and a link to the shopping bag.
+- Sign-in functionality.
+- Shopping access is restricted to signed-in users.
+- Welcome message displayed for signed-in users.
+- Sign-out functionality.
+- Shopping bag data is cleared when the user signs out.
 
----
+### VAL Stylist | AI Shopping Assistant
 
-## Pages / Routes
+VAL Stylist is an AI-powered shopping assistant integrated into the application using the Google Gemini API.
 
-| Route | Description |
+It helps users discover products from the VAL collection through natural-language conversations.
 
-| `/` | Home page | Displays all products |
-| `/products/[category]` | Displays products filtered by category |
-| `/productpage/[id]/[category]` | Displays an individual product |
-| `/cartpage` | Shopping bag and order summary |
+Features include:
 
-Examples of category routes:
+- Understand shopping requests written in natural language.
+- Recommend products from the available collection.
+- Respond to product and budget-related questions.
+- Extract and maintain shopping preferences during conversations.
+- Display recommended products with product details.
+- Add recommended products directly to the shopping bag.
+- Save conversation history locally.
+- Clear the conversation history.
 
-/products/Women
-/products/Men
-/products/Kids
-/products/Home
-/products/Beauty
+The assistant uses the application's product data as its source for product recommendations.
 
-The application contains 12 products across five categories:
+### Navigation and Design
 
-- **Women:** Oversized Linen Shirt, Silk Slip Dress, Wide-Leg Trousers
-- **Men:** Trench Coat, Tapered Trousers, Canvas Utility Jacket
-- **Kids:** Striped Cotton Tee, Dungarees
-- **Home:** Linen Duvet Cover, Ceramic Mug Set
-- **Beauty:** Rosehip Face Oil, Hydrating Body Cream
-
-Each product has an id, name, price, category, image, and description.
-
-## Data
-
-Product data is included at `src/data/data.ts`.
-
-## Screenshots
-
-### Product listing
-
-![Products Page](public/images/products.png)
-
-### Category page
-
-![Category page](public/images/product-category.png)
-
-### Product detail
-
-![Product detail](public/images/product-detail.png)
-
-### Shopping bag
-
-![Shopping bag](public/images/product-cart.png)
-
-## Testing
-
-All tests are located in the `__tests__` directory.
+- Responsive navigation across the application.
+- Category-based product navigation.
+- Price sorting controls.
+- VAL wordmark and shopping bag link in the header.
+- Shopping bag item count.
+- Editorial-inspired layouts
